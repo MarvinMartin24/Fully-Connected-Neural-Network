@@ -14,14 +14,14 @@ python3 main.py
 ```python
 net = Network()
 
-net.add(FCLayer(2, 3))
-net.add(ActivationLayer(tanh, tanh_prime))
-net.add(FCLayer(3, 1))
-net.add(ActivationLayer(tanh, tanh_prime))
+net.add(FCLayer(input_size, nb_neurone))
+net.add(ActivationLayer(activation, activation_prime))
+net.add(FCLayer(prev_nb_neurone, output_size))
+net.add(ActivationLayer(activation, activation_prime))
 
-net.use(mse, mse_prime)
+net.use(Loss, Loss_prime)
 
-net.fit(x_train, y_train, 1000, 0.1)
+net.fit(x_train, y_train, Epoch, learning_rate)
 
 out = net.predict(x_train)
 print(out)
