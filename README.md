@@ -26,8 +26,30 @@ net.fit(x_train, y_train, 1000, 0.1)
 out = net.predict(x_train)
 print(out)
 ```
-## Understand the Maths
+## Implementation : XOR
+* Input / Data:
+| A | B | XOR |
+| --- | --- |--- |
+| 0 | 0 | 0 |
+| 0 | 1 | 1 |
+| 1 | 0 | 1 |
+| 1 | 1 | 0 |
 
+```python3
+x_train = np.array([[[0,0]], [[0,1]], [[1,0]], [[1,1]]])
+y_train = np.array([[[0]], [[1]], [[1]], [[0]]])
+```
+* Output / Prediction :
+```bash
+[[[0.]]
+
+ [[1.]]
+
+ [[1.]]
+
+ [[0.]]]
+```
+## Understand the Maths
 This code is  based on this [Medium](https://medium.com/datadriveninvestor/math-neural-network-from-scratch-in-python-d6da9f29ce65)
 
 ## Colaborators
