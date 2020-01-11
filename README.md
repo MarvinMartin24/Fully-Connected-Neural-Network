@@ -32,4 +32,4 @@ This code is  based on this [Medium](https://medium.com/datadriveninvestor/math-
 
 ## Colaborators
 [Omar Aflak](https://github.com/OmarAflak) (Author of the Medium Article)
-Marvin Martin
+and Marvin Martin
