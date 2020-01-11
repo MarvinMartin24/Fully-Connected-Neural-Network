@@ -28,6 +28,8 @@ print(out)
 ```
 ## Implementation : XOR
 * Input / Data:
+
+
 | A | B | XOR |
 | --- | --- |--- |
 | 0 | 0 | 0 |
