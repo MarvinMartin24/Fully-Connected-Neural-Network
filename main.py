@@ -20,7 +20,7 @@ def main():
     net.fit(x_train, y_train, 1000, 0.1)
 
     out = net.predict(x_train)
-    print(out)
+    print(np.around(out))
 
 if __name__ == '__main__':
     main()
