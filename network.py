@@ -14,34 +14,32 @@ class Network:
         self.loss_prime = loss_prime
 
     def fit(self, x_train, y_train, epochs, learning_rate):
-        samples = len(x_train)
-
-        for i in range(epochs):
-            err = 0
-            for j in range(samples):
-                output = x_train[j]
-
-                # forward pass
+        err = 0
+        for epoch in range(1, epochs):
+            for i, data in enumerate(x_train):
+                output = data
+                #forward_propagation
                 for layer in self.layers:
-                   output = layer.forward_propagation(output)
- 
-                err += self.loss(y_train[j], output)
+                    output = layer.forward_propagation(output)
 
-                # backward pass
-                output_error = self.loss_prime(y_train[j], output)
+                #Compute the error for display purpuse
+                err += self.loss(y_train[i], output)
+
+                #backward_propagation
+                output_error = self.loss_prime(y_train[i], output)
                 for layer in reversed(self.layers):
                     output_error = layer.backward_propagation(output_error, learning_rate)
 
-            err /= samples
-            print("epoch %d/%d    error=%f" % (i+1, epochs, err))
+                # calculate average error on all samples
+            err /= len(x_train)
+            print('Epoch %d/%d  Error=%f' % (epoch+1, epochs, err))
 
     def predict(self, x_test):
-        samples = len(x_test)
-        result = []
-        for j in range(samples):
-            output = x_test[j]
+        res = []
+        for i, data in enumerate(x_test):
+            #forward_propagation
+            output = data
             for layer in self.layers:
-               output = layer.forward_propagation(output)
-
-            result.append(output)
-        return result
+                output = layer.forward_propagation(output)
+            res.append(output)
+        return res
